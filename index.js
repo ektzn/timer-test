@@ -5,15 +5,16 @@ const timerEl = document.querySelector('span');
 // Напишите реализацию createTimerAnimator
 // который будет анимировать timerEl
 // const createTimerAnimator = () => (seconds) => {
+//   let sec = 0;
 //   const timerTick = () => {
 //     if(seconds >= 0){
 //       hours = parseInt(seconds / 3600, 10);
 //       minutes = parseInt((seconds - (hours * 3600)) / 60, 10);
-//       seconds = parseInt(seconds % 60, 10);
+//       sec = parseInt(seconds % 60, 10);
 //       hours = hours < 10 ? "0" + hours : hours;
 //       minutes = minutes < 10 ? "0" + minutes : minutes;
-//       seconds = seconds < 10 ? "0" + seconds : seconds;
-//       timerEl.textContent = hours + ":" + minutes + ":" + seconds;
+//       seconds = sec < 10 ? "0" + sec : sec;
+//       timerEl.textContent = hours + ":" + minutes + ":" + sec;
 //       seconds--
 //       setTimeout(timerTick, 1000)
 //     }
@@ -34,7 +35,6 @@ const createTimerAnimator = () => (seconds) => {
       hours = hours < 10 ? "0" + hours : hours;
       minutes = minutes < 10 ? "0" + minutes : minutes;
       sec = sec < 10 ? "0" + sec : sec;
-      console.log(hours,minutes,sec)
       timerEl.textContent = hours + ":" + minutes + ":" + sec;
       seconds--
     }, 1000);
@@ -57,8 +57,6 @@ inputEl.addEventListener('input', () => {
 
 buttonEl.addEventListener('click', () => {
   const seconds = Number(inputEl.value);
-  console.log(seconds)
-  // createTimerAnimator(seconds);
   animateTimer(seconds)
   inputEl.value = '';
 
